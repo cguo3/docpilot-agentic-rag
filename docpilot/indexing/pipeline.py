@@ -28,7 +28,7 @@ class IngestionPipeline:
         self._embedder = embedder
         self._vector_store = vector_store
 
-    async def run(self, source: str | Path, **kwargs: Any) -> list[str]:
+    async def run(self, source: str | Path | None = None, **kwargs: Any) -> list[str]:
         """Run the full pipeline; return the IDs of indexed documents."""
         documents = await self._loader.load(source, **kwargs)
         documents = await self._cleaner.clean(documents)

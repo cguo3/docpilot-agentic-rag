@@ -9,9 +9,12 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=0.40.0",
+    "datasets>=2.0",
+    "faiss-cpu>=1.7",
     "openai>=1.0",
     "pydantic>=2.0",
     "numpy>=1.26",
+    "sentence-transformers>=2.0",
 ]
 
 [project.optional-dependencies]
@@ -26,7 +29,7 @@ dev = [
 docpilot = "docpilot:main"
 
 [tool.uv_build]
-packages = ["docpilot"]
+source-include = ["docpilot"]
 
 [build-system]
 requires = ["uv_build>=0.10.11,<0.11.0"]

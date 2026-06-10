@@ -11,3 +11,6 @@ wheels/
 
 # Claude Code local settings
 .claude/
+
+# Data — vector indexes and cache (large binaries, not for VCS)
+data/

@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from typing import Any
 
-import numpy as np
-
 from ..core.schema import Document, SearchResult
 from .base import VectorStoreBase
 
@@ -15,15 +13,15 @@ class ChromaStore(VectorStoreBase):
         self.collection_name = collection_name
         self.persist_directory = persist_directory
 
-    async def ingest(self, documents: list[Document], embeddings: list[np.ndarray]) -> list[str]:
+    async def ingest(self, documents: list[Document], embeddings: list[list[float]]) -> list[str]:
         raise NotImplementedError
 
-    async def query(self, vector: np.ndarray, top_k: int = 10) -> list[SearchResult]:
+    async def query(self, vector: list[float], top_k: int = 10) -> list[SearchResult]:
         raise NotImplementedError
 
     async def filtered_query(
         self,
-        vector: np.ndarray,
+        vector: list[float],
         filter: dict[str, Any],
         top_k: int = 10,
     ) -> list[SearchResult]:

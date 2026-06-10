@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import numpy as np
 from openai import AsyncOpenAI
 
 from ..core.schema import Document
@@ -21,8 +20,8 @@ class OpenAIEmbedder(EmbedderBase):
     def dimensions(self) -> int:
         return 1536
 
-    async def embed_documents(self, documents: list[Document]) -> list[np.ndarray]:
+    async def embed_documents(self, documents: list[Document]) -> list[list[float]]:
         raise NotImplementedError
 
-    async def embed_query(self, query: str) -> np.ndarray:
+    async def embed_query(self, query: str) -> list[float]:
         raise NotImplementedError

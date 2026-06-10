@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import numpy as np
-
 from ..core.schema import Document
 from .base import EmbedderBase
 
@@ -21,8 +19,8 @@ class QwenEmbedder(EmbedderBase):
     def dimensions(self) -> int:
         return 1024
 
-    async def embed_documents(self, documents: list[Document]) -> list[np.ndarray]:
+    async def embed_documents(self, documents: list[Document]) -> list[list[float]]:
         raise NotImplementedError
 
-    async def embed_query(self, query: str) -> np.ndarray:
+    async def embed_query(self, query: str) -> list[float]:
         raise NotImplementedError

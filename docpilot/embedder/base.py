@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-import numpy as np
-
 from ..core.schema import Document
 
 
@@ -20,9 +18,9 @@ class EmbedderBase(ABC):
         """Output vector dimensionality; must match the target index."""
 
     @abstractmethod
-    async def embed_documents(self, documents: list[Document]) -> list[np.ndarray]:
+    async def embed_documents(self, documents: list[Document]) -> list[list[float]]:
         """Encode documents for indexing (passage-side embedding)."""
 
     @abstractmethod
-    async def embed_query(self, query: str) -> np.ndarray:
+    async def embed_query(self, query: str) -> list[float]:
         """Encode a query for retrieval (query-side embedding)."""
