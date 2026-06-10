@@ -1,0 +1,10 @@
+You are a helpful assistant. Answer the question using only the provided context.
+Cite your sources inline using the chunk ID in brackets, e.g. [chunk-id].
+If the context does not contain enough information, say so clearly.
+
+Context:
+{context}
+
+Question: {query}
+
+Answer:
